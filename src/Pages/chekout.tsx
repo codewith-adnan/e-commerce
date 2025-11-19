@@ -1,7 +1,7 @@
 import React from 'react';
 
 import bannerBg from '../assets/images/Rectangle1.png'; // Replace with your actual path
-import meubelLogo from '../assets/icons/m tag.svg'; 
+import meubelLogo from '../assets/icons/m tag.svg';
 
 const Checkout: React.FC = () => {
   return (
@@ -18,7 +18,11 @@ const Checkout: React.FC = () => {
             <img src={meubelLogo} alt="Meubel Logo" className="h-18 w-auto" />
             <h1 className="text-3xl tracking-wide">Checkout</h1> {/* Changed to Checkout */}
             <p className="text-sm mt-1 font-bold flex flex-row">
-              Home <p className="mx-1 font-bold">&gt;</p> Shop <p className="mx-1 font-bold">&gt;</p> Checkout
+              <a href="/pages/home" className="hover:underline">Home</a>
+              <p className="mx-1 font-bold">&gt;</p>
+              <a href="/pages/shop" className="hover:underline">Shop</a>
+              <p className="mx-1 font-bold">&gt;</p>
+              Checkout
             </p>
           </div>
         </div>
@@ -255,7 +259,6 @@ const Checkout: React.FC = () => {
     </div>
   </div>
 </div>
-    </div>
     </>
   );
 };

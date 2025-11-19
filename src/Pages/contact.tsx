@@ -22,9 +22,9 @@ const ContactUs: React.FC = () => {
           />
           <div className="relative z-10 flex flex-col items-center justify-center h-full text-gray-800">
             <img src={meubelLogo} alt="Meubel Logo" className="h-18 w-auto" />
-            <h1 className="text-3xl tracking-wide">Checkout</h1>
+            <h1 className="text-3xl tracking-wide">Contact</h1>
             <p className="text-sm mt-1 font-bold flex flex-row">
-              Home <p className="mx-1 font-bold">&gt;</p> Shop <p className="mx-1 font-bold">&gt;</p> Checkout
+              Home <p className="mx-1 font-bold">&gt;</p> Shop <p className="mx-1 font-bold">&gt;</p> Contact
             </p>
           </div>
         </div>
