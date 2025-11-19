@@ -33,6 +33,7 @@ const ContactUs: React.FC = () => {
       </header>
 
       <div className="container mx-auto px-4 py-16">
+        {/* "Get In Touch With Us" section - already centered with max-w-2xl and mx-auto */}
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Get In Touch With Us</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
@@ -40,7 +41,9 @@ const ContactUs: React.FC = () => {
           </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-8">
+        {/* This main flex container now has justify-center and a max-w to center it */}
+        <div className="flex flex-col lg:flex-row gap-8 justify-center max-w-5xl mx-auto">
+          {/* Information column */}
           <div className="w-full lg:w-1/2 flex flex-col space-y-8 p-6">
             <div className="flex items-start space-x-4">
               <img src={locationIcon} alt="Address Icon" className="h-6 w-6 mt-1" />
@@ -65,6 +68,7 @@ const ContactUs: React.FC = () => {
             </div>
           </div>
 
+          {/* Form column */}
           <div className="w-full lg:w-1/2 p-6">
             <form className="space-y-6">
               <div>
