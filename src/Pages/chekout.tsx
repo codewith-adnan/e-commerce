@@ -32,9 +32,11 @@ const Checkout: React.FC = () => {
       <div className="container mx-auto px-4 py-12">
         <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Billing details</h2>
 
-        <div className="flex flex-wrap -mx-4">
+        {/* Ensure justify-center for all screen sizes */}
+        <div className="flex flex-wrap justify-center -mx-4">
           {/* Billing Form Column */}
-          <div className="w-full lg:w-2/5 gap-4 px-4 mb-8 lg:mb-0">
+          {/* Changed w-full to make it take full width on mobile, then lg:w-2/5 */}
+          <div className="w-full sm:w-4/5 md:w-3/5 lg:w-2/5 px-4 mb-8 lg:mb-0">
             <form>
               <div className="grid grid-cols-1 md:grid-cols-2  mb-6">
                 <div>
@@ -165,7 +167,8 @@ const Checkout: React.FC = () => {
           </div>
 
           {/* Order Summary and Payment Column */}
-          <div className="w-full lg:w-2/5 px-4">
+          {/* Changed w-full to make it take full width on mobile, then lg:w-2/5 */}
+          <div className="w-full sm:w-4/5 md:w-3/5 lg:w-2/5 px-4 mt-8 lg:mt-0">
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h3 className="text-xl font-bold text-gray-800 mb-4">Product</h3>
               <div className="flex justify-between items-center mb-2">
