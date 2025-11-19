@@ -34,9 +34,9 @@ const Checkout: React.FC = () => {
 
         <div className="flex flex-wrap -mx-4">
           {/* Billing Form Column */}
-          <div className="w-full lg:w-3/5 px-4 mb-8 lg:mb-0">
+          <div className="w-full lg:w-2/5 gap-4 px-4 mb-8 lg:mb-0">
             <form>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+              <div className="grid grid-cols-1 md:grid-cols-2  mb-6">
                 <div>
                   <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
                     First Name
@@ -44,7 +44,7 @@ const Checkout: React.FC = () => {
                   <input
                     type="text"
                     id="firstName"
-                    className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                    className="mt-1 block w-3/4 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
                 <div>
@@ -54,7 +54,7 @@ const Checkout: React.FC = () => {
                   <input
                     type="text"
                     id="lastName"
-                    className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                    className="mt-1 block w-3/4 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
               </div>
@@ -66,7 +66,7 @@ const Checkout: React.FC = () => {
                 <input
                   type="text"
                   id="companyName"
-                  className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  className="mt-1 block w-3/4 p-2 border border-gray-300 rounded-md "
                 />
               </div>
 
@@ -76,7 +76,7 @@ const Checkout: React.FC = () => {
                 </label>
                 <select
                   id="countryRegion"
-                  className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  className="mt-1 block w-3/4 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                 >
                   <option>Sri Lanka</option>
                   {/* Add more countries as needed */}
@@ -90,7 +90,7 @@ const Checkout: React.FC = () => {
                 <input
                   type="text"
                   id="streetAddress"
-                  className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  className="mt-1 block w-3/4 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                 />
               </div>
 
@@ -101,7 +101,7 @@ const Checkout: React.FC = () => {
                 <input
                   type="text"
                   id="townCity"
-                  className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  className="mt-1 block w-3/4 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                 />
               </div>
 
@@ -111,7 +111,7 @@ const Checkout: React.FC = () => {
                 </label>
                 <select
                   id="province"
-                  className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  className="mt-1 block w-3/4 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                 >
                   <option>Western Province</option>
                   {/* Add more provinces as needed */}
@@ -125,7 +125,7 @@ const Checkout: React.FC = () => {
                 <input
                   type="text"
                   id="zipCode"
-                  className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  className="mt-1 block w-3/4 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                 />
               </div>
 
@@ -136,7 +136,7 @@ const Checkout: React.FC = () => {
                 <input
                   type="tel"
                   id="phone"
-                  className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  className="mt-1 block w-3/4 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                 />
               </div>
 
@@ -147,7 +147,7 @@ const Checkout: React.FC = () => {
                 <input
                   type="email"
                   id="emailAddress"
-                  className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  className="mt-1 block w-3/4 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                 />
               </div>
 
@@ -158,7 +158,7 @@ const Checkout: React.FC = () => {
                 <textarea
                   id="additionalInformation"
                   rows={4}
-                  className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  className="mt-1 block w-3/4 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                 ></textarea>
               </div>
             </form>
@@ -178,7 +178,7 @@ const Checkout: React.FC = () => {
               </div>
               <div className="flex justify-between items-center mb-6">
                 <span className="text-xl font-bold text-gray-800">Total</span>
-                <span className="text-xl font-bold text-blue-600">Rs. 250,000.00</span>
+                <span className="text-xl font-bold text-[#B88E2F]">Rs. 250,000.00</span>
               </div>
 
               <div className="mb-6">
@@ -233,7 +233,7 @@ const Checkout: React.FC = () => {
 
               <button
                 type="submit"
-                className="w-full py-3 px-4 bg-blue-600 text-white font-semibold rounded-md shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                className="w-full py-3 px-4 text-gray-800 font-semibold rounded-md shadow-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 border border-gray-800"
               >
                 Place order
               </button>
@@ -242,23 +242,22 @@ const Checkout: React.FC = () => {
         </div>
       </div>
 
-     { /* Footer Section */}
       <div className="bg-[#FAF4F4] py-12">
-  <div className="container mx-auto px-4 flex flex-wrap justify-around items-start text-gray-600 text-sm">
-    <div className="w-full sm:w-1/3 mb-6 sm:mb-0 text-left">
-      <h4 className="font-semibold text-gray-800 text-xl mb-2">Free Delivery</h4>
-      <p className="max-w-xs">For all orders over $50, consectetur adipim scing elit.</p>
-    </div>
-    <div className="w-full sm:w-1/3 mb-6 sm:mb-0 text-left">
-      <h4 className="font-semibold text-gray-800 text-xl mb-2">90 Days Return</h4>
-      <p className="max-w-xs">If goods have problems, consectetur adipim scing elit.</p>
-    </div>
-    <div className="w-full sm:w-1/3 text-left">
-      <h4 className="font-semibold text-gray-800 text-xl mb-2">Secure Payment</h4>
-      <p className="max-w-xs">100% secure payment, consectetur adipim scing elit.</p>
-    </div>
-  </div>
-</div>
+        <div className="container mx-auto px-4 flex flex-wrap justify-around items-start text-gray-600 text-sm">
+          <div className="w-full sm:w-1/3 mb-6 sm:mb-0 text-left">
+            <h4 className="font-semibold text-gray-800 text-xl mb-2">Free Delivery</h4>
+            <p className="max-w-xs">For all orders over $50, consectetur adipim scing elit.</p>
+          </div>
+          <div className="w-full sm:w-1/3 mb-6 sm:mb-0 text-left">
+            <h4 className="font-semibold text-gray-800 text-xl mb-2">90 Days Return</h4>
+            <p className="max-w-xs">If goods have problems, consectetur adipim scing elit.</p>
+          </div>
+          <div className="w-full sm:w-1/3 text-left">
+            <h4 className="font-semibold text-gray-800 text-xl mb-2">Secure Payment</h4>
+            <p className="max-w-xs">100% secure payment, consectetur adipim scing elit.</p>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
