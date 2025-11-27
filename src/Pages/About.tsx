@@ -26,33 +26,63 @@ const About: React.FC = () => {
 
             {/* Main Content Section */}
             <div className="flex-grow container mx-auto px-4 py-12">
-                <div className="flex flex-col md:flex-row items-center gap-12">
+                <div className="flex flex-col md:flex-row items-center gap-12 mb-20">
                     {/* About Image */}
                     <div className="w-full md:w-1/2">
                         <img
                             src={aboutImage}
                             alt="About Us"
-                            className="w-full h-auto rounded-lg  object-cover"
+                            className="w-full h-auto rounded-lg object-cover shadow-md"
                         />
                     </div>
 
                     {/* About Text */}
                     <div className="w-full md:w-1/2 space-y-6">
-                        <h2 className="text-3xl font-semibold text-gray-800">Who We Are</h2>
+                        <h2 className="text-3xl font-semibold text-gray-800">Crafting Comfort, Designing Dreams</h2>
                         <p className="text-gray-600 leading-relaxed">
-                            Welcome to our store! We are passionate about providing high-quality furniture that transforms houses into homes.
-                            Our journey began with a simple mission: to make beautiful, durable, and affordable furniture accessible to everyone.
+                            At Meubel House, we don't just sell furniture; we curate experiences. Our passion lies in finding the perfect balance between aesthetic beauty and functional comfort. Every piece in our collection is selected with a keen eye for detail, ensuring that it not only looks stunning but also stands the test of time.
                         </p>
                         <p className="text-gray-600 leading-relaxed">
-                            We believe that your home should be a reflection of your personality. That's why we curate a wide range of
-                            styles, from modern minimalism to classic elegance, ensuring there's something for every taste.
+                            From the warmth of natural wood to the sleek lines of modern metal, our diverse range caters to every style. We believe your home is your sanctuary, and it deserves nothing but the best.
                         </p>
 
                         <div className="pt-4">
-                            <h3 className="text-xl font-medium text-gray-800 mb-2">Our Mission</h3>
+                            <h3 className="text-xl font-medium text-gray-800 mb-2">Our Promise</h3>
                             <p className="text-gray-600">
-                                To inspire and innovate in every piece we offer, prioritizing sustainability, craftsmanship, and customer satisfaction above all else.
+                                Uncompromising quality, sustainable sourcing, and a customer-first approach are the pillars of our brand. We are here to help you build the home of your dreams, one piece at a time.
                             </p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* New Section: Our Focus / Gallery */}
+                <div className="text-center mb-16">
+                    <h2 className="text-3xl font-semibold text-gray-800 mb-4">Our Creative Focus</h2>
+                    <p className="text-gray-600 max-w-2xl mx-auto mb-10">
+                        We focus on three core principles: Innovation, Sustainability, and Timeless Design. Explore how we bring these to life.
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div className="flex flex-col items-center">
+                            <div className="w-full h-64 bg-gray-200 rounded-lg overflow-hidden mb-4 shadow-sm hover:shadow-md transition-shadow">
+                                {/* Placeholder for a new image, reusing existing ones for now */}
+                                <img src={aboutImage} alt="Innovation" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                            </div>
+                            <h3 className="text-xl font-medium text-gray-800">Innovation</h3>
+                            <p className="text-sm text-gray-500 mt-2">Pushing boundaries with modern materials.</p>
+                        </div>
+                        <div className="flex flex-col items-center">
+                            <div className="w-full h-64 bg-gray-200 rounded-lg overflow-hidden mb-4 shadow-sm hover:shadow-md transition-shadow">
+                                <img src={bannerBg} alt="Sustainability" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                            </div>
+                            <h3 className="text-xl font-medium text-gray-800">Sustainability</h3>
+                            <p className="text-sm text-gray-500 mt-2">Eco-friendly choices for a better future.</p>
+                        </div>
+                        <div className="flex flex-col items-center">
+                            <div className="w-full h-64 bg-gray-200 rounded-lg overflow-hidden mb-4 shadow-sm hover:shadow-md transition-shadow">
+                                <img src={aboutImage} alt="Timeless Design" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                            </div>
+                            <h3 className="text-xl font-medium text-gray-800">Timeless Design</h3>
+                            <p className="text-sm text-gray-500 mt-2">Styles that never go out of fashion.</p>
                         </div>
                     </div>
                 </div>

@@ -97,10 +97,10 @@ const Shop: React.FC = () => {
                 <img src={listIcon} alt="List View" className="w-4 h-4" />
               </button>
             </div>
-            <div className="h-6 w-px bg-gray-300 mx-4"></div>
-            <span className="text-black text-sm">Showing 1-16 of 32 results</span>
+            <div className="h-6 w-px bg-gray-300 mx-4 hidden md:block"></div>
+            <span className="text-black text-sm hidden md:block">Showing 1-16 of 32 results</span>
           </div>
-          <div className="flex items-center space-x-4 text-sm">
+          <div className="flex items-center space-x-4 text-sm hidden md:flex">
             <div className="flex items-center space-x-2">
               <span className="text-black">Show</span>
               <div className="px-2 py-2 bg-white  text-gray-400">16</div>

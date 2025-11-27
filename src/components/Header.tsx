@@ -1,5 +1,5 @@
 // src/components/Header.tsx
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom"; // Import useLocation
 
 interface HeaderProps {
@@ -8,6 +8,11 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ onToggleCart }) => {
   const location = useLocation(); // Get the current location
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   // Determine the background color based on the current path
   const headerBackgroundColor =
@@ -16,10 +21,21 @@ const Header: React.FC<HeaderProps> = ({ onToggleCart }) => {
       : "bg-white"; // Change to white for other pages
 
   return (
-    <header className={`${headerBackgroundColor} py-4`}>
+    <header className={`${headerBackgroundColor} py-4 relative`}>
       <div className="container mx-auto flex justify-between items-center px-4">
         {/* Placeholder for logo or site title */}
-        <div className="text-xl font-bold"></div>
+        <div className="flex items-center">
+          {/* Custom Burger Icon for Mobile */}
+          <button
+            onClick={toggleMobileMenu}
+            className="md:hidden mr-4 cursor-pointer flex flex-col gap-1 w-6 focus:outline-none z-50"
+          >
+            <span className={`block h-0.5 bg-black w-3 transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-1.5 w-6' : ''}`}></span>
+            <span className={`block h-0.5 bg-black w-4 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
+            <span className={`block h-0.5 bg-black w-6 transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
+          </button>
+          <div className="text-xl font-bold"></div>
+        </div>
 
         <nav className="hidden md:flex space-x-10">
           <Link to="/Pages/Home" className="text-gray-800 hover:text-gray-900">Home</Link>
@@ -56,6 +72,19 @@ const Header: React.FC<HeaderProps> = ({ onToggleCart }) => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
             </svg>
           </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      <div className={`fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300 md:hidden ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`} onClick={toggleMobileMenu}></div>
+
+      {/* Mobile Menu Drawer */}
+      <div className={`fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 transform transition-transform duration-300 ease-in-out md:hidden ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+        <div className="p-6 flex flex-col space-y-6 mt-12">
+          <Link to="/Pages/Home" className="text-lg font-medium text-gray-800 hover:text-orange-500" onClick={toggleMobileMenu}>Home</Link>
+          <Link to="/pages/shop" className="text-lg font-medium text-gray-800 hover:text-orange-500" onClick={toggleMobileMenu}>Shop</Link>
+          <Link to="/pages/about" className="text-lg font-medium text-gray-800 hover:text-orange-500" onClick={toggleMobileMenu}>About</Link>
+          <Link to="/pages/contact" className="text-lg font-medium text-gray-800 hover:text-orange-500" onClick={toggleMobileMenu}>Contact</Link>
         </div>
       </div>
     </header>

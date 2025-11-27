@@ -50,7 +50,7 @@ const Home: React.FC = () => {
           <img
             src={rocketSeater}
             alt="Rocket Single Seater"
-            className="max-w-full h-auto max-h-[400px] md:max-h-[500px]  object-contain"
+            className="max-w-full h-auto max-h-[400px] md:max-h-[500px] lg:max-h-[800px] lg:scale-125 object-contain"
           />
         </div>
       </section>
