@@ -20,7 +20,7 @@ const MyAcount: React.FC = () => {
             <img src={meubelLogo} alt="Meubel Logo" className="h-18 w-auto" />
             <h1 className="text-3xl tracking-wide">Shop</h1>
             <p className="text-sm mt-1 font-bold flex flex-row">
-              Home <p className="mx-1 font-bold">></p> Shop
+              Home <p className="mx-1 font-bold">&gt;</p> Shop
             </p>
           </div>
         </div>

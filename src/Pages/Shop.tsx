@@ -76,7 +76,7 @@ const Shop: React.FC = () => {
           <div className="relative z-10 flex flex-col items-center justify-center h-full text-gray-800">
             <img src={meubelLogo} alt="Meubel Logo" className="h-18 w-auto" />
             <h1 className="text-3xl   tracking-wide">Shop</h1>
-            <p className="text-sm mt-1 font-bold flex flex-row">Home <p className="mx-1 font-bold">></p> Shop</p>
+            <p className="text-sm mt-1 font-bold flex flex-row">Home <p className="mx-1 font-bold">&gt;</p> Shop</p>
           </div>
         </div>
       </header>
@@ -143,21 +143,21 @@ const Shop: React.FC = () => {
 
       {/* Footer Section */}
       <div className="bg-[#FAF4F4] py-12">
-  <div className="container mx-auto px-4 flex flex-wrap justify-around items-start text-gray-600 text-sm">
-    <div className="w-full sm:w-1/3 mb-6 sm:mb-0 text-left">
-      <h4 className="font-semibold text-gray-800 text-xl mb-2">Free Delivery</h4>
-      <p className="max-w-xs">For all orders over $50, consectetur adipim scing elit.</p>
-    </div>
-    <div className="w-full sm:w-1/3 mb-6 sm:mb-0 text-left">
-      <h4 className="font-semibold text-gray-800 text-xl mb-2">90 Days Return</h4>
-      <p className="max-w-xs">If goods have problems, consectetur adipim scing elit.</p>
-    </div>
-    <div className="w-full sm:w-1/3 text-left">
-      <h4 className="font-semibold text-gray-800 text-xl mb-2">Secure Payment</h4>
-      <p className="max-w-xs">100% secure payment, consectetur adipim scing elit.</p>
-    </div>
-  </div>
-</div>
+        <div className="container mx-auto px-4 flex flex-wrap justify-around items-start text-gray-600 text-sm">
+          <div className="w-full sm:w-1/3 mb-6 sm:mb-0 text-left">
+            <h4 className="font-semibold text-gray-800 text-xl mb-2">Free Delivery</h4>
+            <p className="max-w-xs">For all orders over $50, consectetur adipim scing elit.</p>
+          </div>
+          <div className="w-full sm:w-1/3 mb-6 sm:mb-0 text-left">
+            <h4 className="font-semibold text-gray-800 text-xl mb-2">90 Days Return</h4>
+            <p className="max-w-xs">If goods have problems, consectetur adipim scing elit.</p>
+          </div>
+          <div className="w-full sm:w-1/3 text-left">
+            <h4 className="font-semibold text-gray-800 text-xl mb-2">Secure Payment</h4>
+            <p className="max-w-xs">100% secure payment, consectetur adipim scing elit.</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
