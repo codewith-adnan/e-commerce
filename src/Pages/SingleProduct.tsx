@@ -129,7 +129,7 @@ const SingleProductDetails: React.FC = () => {
         <div className="flex items-center">
           <p>Share <span className="ml-14">:</span></p>
           <div className="flex space-x-3 ml-4">
-            <a href="#" className="w-6 h-6"> 
+            <a href="#" className="w-6 h-6">
               <img src={facebookIcon} alt="Facebook" className="w-full h-full" />
             </a>
             <a href="#" className="w-6 h-6">
@@ -239,7 +239,7 @@ const SingleProductPage: React.FC = () => {
           </div>
 
           <div className="mt-12">
-            <a href="#" className="relative text-lg text-gray-800 font-medium pb-1 group">
+            <a href="/pages/shop" className="relative text-lg text-gray-800 font-medium pb-1 group">
               View More
               <span className="absolute left-0 bottom-0 w-full h-0.5 bg-gray-800 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
             </a>

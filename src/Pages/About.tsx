@@ -2,6 +2,9 @@ import React from 'react';
 import bannerBg from '../assets/images/Rectangle1.png';
 import meubelLogo from '../assets/icons/m tag.svg';
 import aboutImage from '../assets/images/Mask-group1.png'; // Reusing a product image for the About section
+import focusImage1 from '../assets/images/Mask-group.png';
+import focusImage2 from '../assets/images/Mask-group2.png';
+import focusImage3 from '../assets/images/Rectangle13.png';
 
 const About: React.FC = () => {
     return (
@@ -64,22 +67,21 @@ const About: React.FC = () => {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div className="flex flex-col items-center">
                             <div className="w-full h-64 bg-gray-200 rounded-lg overflow-hidden mb-4 shadow-sm hover:shadow-md transition-shadow">
-                                {/* Placeholder for a new image, reusing existing ones for now */}
-                                <img src={aboutImage} alt="Innovation" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                                <img src={focusImage1} alt="Innovation" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                             </div>
                             <h3 className="text-xl font-medium text-gray-800">Innovation</h3>
                             <p className="text-sm text-gray-500 mt-2">Pushing boundaries with modern materials.</p>
                         </div>
                         <div className="flex flex-col items-center">
                             <div className="w-full h-64 bg-gray-200 rounded-lg overflow-hidden mb-4 shadow-sm hover:shadow-md transition-shadow">
-                                <img src={bannerBg} alt="Sustainability" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                                <img src={focusImage2} alt="Sustainability" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                             </div>
                             <h3 className="text-xl font-medium text-gray-800">Sustainability</h3>
                             <p className="text-sm text-gray-500 mt-2">Eco-friendly choices for a better future.</p>
                         </div>
                         <div className="flex flex-col items-center">
                             <div className="w-full h-64 bg-gray-200 rounded-lg overflow-hidden mb-4 shadow-sm hover:shadow-md transition-shadow">
-                                <img src={aboutImage} alt="Timeless Design" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                                <img src={focusImage3} alt="Timeless Design" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                             </div>
                             <h3 className="text-xl font-medium text-gray-800">Timeless Design</h3>
                             <p className="text-sm text-gray-500 mt-2">Styles that never go out of fashion.</p>

@@ -18,19 +18,19 @@ const MyAcount: React.FC = () => {
           />
           <div className="relative z-10 flex flex-col items-center justify-center h-full text-gray-800">
             <img src={meubelLogo} alt="Meubel Logo" className="h-18 w-auto" />
-            <h1 className="text-3xl tracking-wide">Shop</h1>
+            <h1 className="text-3xl tracking-wide">My Account</h1>
             <p className="text-sm mt-1 font-bold flex flex-row">
-              Home <p className="mx-1 font-bold">&gt;</p> Shop
+              <a href="/" className="hover:underline">Home</a> <p className="mx-1 font-bold">&gt;</p> My Account
             </p>
           </div>
         </div>
       </header>
 
       {/* Main Content Area (Login/Register Card) */}
-      <div className="flex-grow flex items-center justify-center p-4"> {/* flex-grow to push footer down */}
-        <div className="flex flex-col md:flex-row bg-white rounded-lg shadow-lg overflow-hidden max-w-4xl w-full">
+      <div className="flex-grow flex items-center justify-center p-4 py-12"> {/* flex-grow to push footer down */}
+        <div className="flex flex-col md:flex-row gap-8 max-w-6xl w-full">
           {/* Log In Section */}
-          <div className="w-full md:w-1/2 p-8 border-b md:border-b-0 md:border-r border-gray-200">
+          <div className="w-full md:w-1/2 p-8 bg-white rounded-lg shadow-lg">
             <h2 className="text-2xl font-semibold mb-6 text-gray-800">Log In</h2>
             <form>
               <div className="mb-4">
@@ -78,7 +78,7 @@ const MyAcount: React.FC = () => {
           </div>
 
           {/* Register Section */}
-          <div className="w-full md:w-1/2 p-8">
+          <div className="w-full md:w-1/2 p-8 bg-white rounded-lg shadow-lg">
             <h2 className="text-2xl font-semibold mb-6 text-gray-800">Register</h2>
             <form>
               <div className="mb-4">

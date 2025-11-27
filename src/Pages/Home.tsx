@@ -37,12 +37,11 @@ const Home: React.FC = () => {
             Rocket single <br /> seater
           </h2>
           <a
-            href="#"
-            onClick={handleShopNowClick}
+            href="/pages/shop"
             className="relative text-lg text-gray-900 font-semibold pb-1 group inline-block"
           >
             Shop Now
-            <span className="absolute left-0 bottom-0 w-full h-0.5 bg-gray-900 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+            <span className="absolute left-0 bottom-0 w-full h-0.5 bg-gray-900 transform scale-x-100 transition-transform duration-300"></span>
           </a>
         </div>
 
@@ -50,7 +49,7 @@ const Home: React.FC = () => {
           <img
             src={rocketSeater}
             alt="Rocket Single Seater"
-            className="max-w-full h-auto max-h-[400px] md:max-h-[500px] lg:max-h-[800px] lg:scale-125 object-contain"
+            className="max-w-full h-auto max-h-[400px] md:max-h-[500px] lg:max-h-[600px] object-contain mt-[-3rem]"
           />
         </div>
       </section>
@@ -64,10 +63,10 @@ const Home: React.FC = () => {
               className="w-full h-auto object-contain max-h-[500px] md:max-h-[700px] mb-4"
             />
             <h3 className="text-3xl pl-14 mt-[-7rem] font-semibold text-gray-900 mb-2 ">Side table</h3>
-            <a href="#" className="pl-14 text-lg text-gray-800 font-medium pb-1 inline-block">
+            <a href="/pages/shop" className="pl-14 text-lg text-gray-800 font-medium pb-1 inline-block">
               <span className="relative group inline-block">
                 View More
-                <span className="absolute left-0 bottom-0 w-full h-0.5 bg-gray-800 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                <span className="absolute left-0 bottom-0 w-full h-0.5 bg-gray-800 transform scale-x-100 transition-transform duration-300"></span>
               </span>
             </a>
           </div>
@@ -78,10 +77,10 @@ const Home: React.FC = () => {
               className="w-full h-auto object-contain max-h-[500px] md:max-h-[700px] mb-4"
             />
             <h3 className="text-3xl mt-[-7rem] pl-14 font-semibold text-[#000000] mb-2 ">Side table</h3>
-            <a href="#" className="pl-14 text-lg text-gray-800 font-medium pb-1 inline-block">
+            <a href="/pages/shop" className="pl-14 text-lg text-gray-800 font-medium pb-1 inline-block">
               <span className="relative group inline-block">
                 View More
-                <span className="absolute left-0 bottom-0 w-full h-0.5 bg-gray-800 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                <span className="absolute left-0 bottom-0 w-full h-0.5 bg-gray-800 transform scale-x-100 transition-transform duration-300"></span>
               </span>
             </a>
           </div>
@@ -119,9 +118,9 @@ const Home: React.FC = () => {
           </div>
 
           <div className="mt-12">
-            <a href="#" className="relative text-lg text-gray-800 font-medium pb-1 group">
+            <a href="/pages/shop" className="relative text-lg text-gray-800 font-medium pb-1 group">
               View More
-              <span className="absolute left-0 bottom-0 w-full h-0.5 bg-gray-800 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+              <span className="absolute left-0 bottom-0 w-full h-0.5 bg-gray-800 transform scale-x-100 transition-transform duration-300"></span>
             </a>
           </div>
         </div>

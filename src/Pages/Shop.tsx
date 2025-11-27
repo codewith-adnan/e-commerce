@@ -89,6 +89,14 @@ const Shop: React.FC = () => {
               <img src={filterIcon} alt="Filter" className="w-4 h-4 text-black" />
               Filter
             </button>
+            {/* Search Input */}
+            <div className="relative hidden md:block">
+              <input
+                type="text"
+                placeholder="Search..."
+                className="pl-3 pr-4 py-1   rounded-md  text-sm"
+              />
+            </div>
             <div className="flex space-x-4 ml-4">
               <button className="text-gray-600 hover:text-orange-500">
                 <img src={gridIcon} alt="Grid View" className="w-4 h-4" />

@@ -46,7 +46,7 @@ const Checkout: React.FC = () => {
                   <input
                     type="text"
                     id="firstName"
-                    className="mt-1 block w-3/4 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                    className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
                 <div>
@@ -56,7 +56,7 @@ const Checkout: React.FC = () => {
                   <input
                     type="text"
                     id="lastName"
-                    className="mt-1 block w-3/4 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                    className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
               </div>
@@ -68,7 +68,7 @@ const Checkout: React.FC = () => {
                 <input
                   type="text"
                   id="companyName"
-                  className="mt-1 block w-3/4 p-2 border border-gray-300 rounded-md "
+                  className="mt-1 block w-full p-2 border border-gray-300 rounded-md "
                 />
               </div>
 
@@ -78,7 +78,7 @@ const Checkout: React.FC = () => {
                 </label>
                 <select
                   id="countryRegion"
-                  className="mt-1 block w-3/4 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                 >
                   <option>Sri Lanka</option>
                   {/* Add more countries as needed */}
@@ -92,7 +92,7 @@ const Checkout: React.FC = () => {
                 <input
                   type="text"
                   id="streetAddress"
-                  className="mt-1 block w-3/4 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                 />
               </div>
 
@@ -103,7 +103,7 @@ const Checkout: React.FC = () => {
                 <input
                   type="text"
                   id="townCity"
-                  className="mt-1 block w-3/4 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                 />
               </div>
 
@@ -113,7 +113,7 @@ const Checkout: React.FC = () => {
                 </label>
                 <select
                   id="province"
-                  className="mt-1 block w-3/4 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                 >
                   <option>Western Province</option>
                   {/* Add more provinces as needed */}
@@ -127,7 +127,7 @@ const Checkout: React.FC = () => {
                 <input
                   type="text"
                   id="zipCode"
-                  className="mt-1 block w-3/4 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                 />
               </div>
 
@@ -138,7 +138,7 @@ const Checkout: React.FC = () => {
                 <input
                   type="tel"
                   id="phone"
-                  className="mt-1 block w-3/4 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                 />
               </div>
 
@@ -149,7 +149,7 @@ const Checkout: React.FC = () => {
                 <input
                   type="email"
                   id="emailAddress"
-                  className="mt-1 block w-3/4 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                 />
               </div>
 
@@ -160,7 +160,7 @@ const Checkout: React.FC = () => {
                 <textarea
                   id="additionalInformation"
                   rows={4}
-                  className="mt-1 block w-3/4 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                 ></textarea>
               </div>
             </form>
