@@ -88,7 +88,14 @@ const ViewCart: React.FC = () => {
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
                           <button
-                            onClick={() => removeFromCart(item.id)}
+                            onClick={() => {
+                              removeFromCart(item.id);
+                              window.dispatchEvent(new CustomEvent('show-toast', {
+                                detail: {
+                                  message: 'Item removed successfully'
+                                }
+                              }));
+                            }}
                             className="text-[#B88E2F] hover:text-red-700 transition-colors"
                           >
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">

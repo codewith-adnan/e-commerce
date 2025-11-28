@@ -81,12 +81,25 @@ const ProductCard: React.FC<Product> = ({ id, name, price, imageUrl }) => {
       image: imageUrl,
       quantity: 1,
     });
-    alert('Item added to cart!');
+
+    // Dispatch custom event for toast notification
+    window.dispatchEvent(new CustomEvent('show-toast', {
+      detail: {
+        message: 'Item added to cart',
+        image: imageUrl
+      }
+    }));
   };
 
   return (
-    <div className="bg-white rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 group shadow-sm hover:shadow-md">
-      <img src={imageUrl} alt={name} className="w-full h-48 object-cover object-center" />
+    <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
+      <div className="overflow-hidden">
+        <img
+          src={imageUrl}
+          alt={name}
+          className="w-full h-48 object-cover object-center transform transition-transform duration-300 hover:scale-110"
+        />
+      </div>
       <div className="p-4">
         <h3 className="text-lg font-medium text-gray-800 text-center">{name}</h3>
         <div className="mt-2 flex justify-between items-center">

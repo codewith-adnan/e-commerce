@@ -100,8 +100,14 @@ const Home: React.FC = () => {
               { id: 'tp3', name: 'Outdoor bar table and stool', price: 'Rs. 25,000.00', image: barStool },
               { id: 'tp4', name: 'Plain console with teak mirror', price: 'Rs. 25,000.00', image: consoleMirror },
             ].map((item) => (
-              <div key={item.id} className="flex flex-col items-center text-center group">
-                <img src={item.image} alt={item.name} className="w-full h-58 object-contain mb-2 transition-transform duration-300 group-hover:scale-105" />
+              <div key={item.id} className="flex flex-col items-center text-center">
+                <div className="overflow-hidden mb-2 w-full">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-58 object-contain transition-transform duration-300 hover:scale-110"
+                  />
+                </div>
                 <h3 className="text-m font-medium text-gray-800 mb-1">{item.name}</h3>
                 <div className="flex justify-between items-center w-full px-4">
                   <p className="text-xl font-bold text-gray-900">{item.price}</p>
@@ -115,7 +121,12 @@ const Home: React.FC = () => {
                         image: item.image,
                         quantity: 1,
                       });
-                      alert('Item added to cart!');
+                      window.dispatchEvent(new CustomEvent('show-toast', {
+                        detail: {
+                          message: 'Item added to cart',
+                          image: item.image
+                        }
+                      }));
                     }}
                     className="text-gray-800 hover:text-orange-500 transition-colors duration-200 focus:outline-none"
                     title="Add to Cart"

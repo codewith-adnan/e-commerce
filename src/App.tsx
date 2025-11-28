@@ -1,10 +1,11 @@
 // src/App.tsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Components
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Toast from './components/Toast';
 
 // Pages
 import Home from './Pages/Home';
@@ -20,11 +21,31 @@ import About from './Pages/About';
 
 import { CartProvider } from './context/CartContext';
 
+interface ToastData {
+  message: string;
+  image?: string;
+}
+
 function App() {
   const [showCart, setShowCart] = useState(false);
+  const [toast, setToast] = useState<ToastData | null>(null);
+
   const toggleCart = () => {
     setShowCart(prevShowCart => !prevShowCart);
   };
+
+  useEffect(() => {
+    const handleShowToast = (event: Event) => {
+      const customEvent = event as CustomEvent<ToastData>;
+      setToast(customEvent.detail);
+    };
+
+    window.addEventListener('show-toast', handleShowToast);
+
+    return () => {
+      window.removeEventListener('show-toast', handleShowToast);
+    };
+  }, []);
 
   return (
     <CartProvider>
@@ -50,6 +71,14 @@ function App() {
           <Footer />
 
           {showCart && <ShoppingCart onClose={toggleCart} />}
+
+          {toast && (
+            <Toast
+              message={toast.message}
+              image={toast.image}
+              onClose={() => setToast(null)}
+            />
+          )}
         </div>
       </Router>
     </CartProvider>
