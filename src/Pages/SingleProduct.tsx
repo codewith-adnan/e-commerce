@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import meubelLogo from '../assets/icons/m tag.svg';
 
 // --- Local Image Imports ---
 import mainProductImage from '../assets/images/Asgaard sofa 1.png';
@@ -27,17 +28,25 @@ import starIcon from '../assets/icons/Vector (1).png';
 
 // --- SingleProductImages Component ---
 const SingleProductImages: React.FC = () => {
+  const [selectedImage, setSelectedImage] = useState(mainProductImage);
+  const thumbnails = [mainProductImage, thumb1, thumb2, thumb3, thumb4];
+
   return (
     <div className="flex w-full md:w-1/2 p-4">
       <div className="flex flex-col space-y-4 pr-4">
-        {[thumb1, thumb2, thumb3, thumb4].map((thumb, index) => (
-          <div key={index} className="w-24 h-24 p-2 bg-[#FFF9E5] rounded-lg flex items-center justify-center cursor-pointer">
+        {thumbnails.map((thumb, index) => (
+          <div
+            key={index}
+            onClick={() => setSelectedImage(thumb)}
+            className={`w-24 h-24 p-2 bg-[#FFF9E5] rounded-lg flex items-center justify-center cursor-pointer transition-all duration-200 ${selectedImage === thumb ? 'ring-2 ring-[#B88E2F]' : 'hover:ring-2 hover:ring-gray-300'
+              }`}
+          >
             <img src={thumb} alt={`Thumbnail ${index + 1}`} className="max-w-full max-h-full object-contain" />
           </div>
         ))}
       </div>
       <div className="flex-grow bg-[#FFF9E5] rounded-lg flex items-center justify-center p-4">
-        <img src={mainProductImage} alt="Asgaard Sofa Main" className="max-w-full max-h-full object-contain" />
+        <img src={selectedImage} alt="Asgaard Sofa Main" className="max-w-full max-h-full object-contain" />
       </div>
     </div>
   );
@@ -50,14 +59,20 @@ const SingleProductDetails: React.FC = () => {
 
   const handleAddToCart = () => {
     addToCart({
-      id: '14', // Fixed ID for demo
+      id: '14',
       name: 'Asgaard sofa',
       price: 250000,
       image: mainProductImage,
       quantity: quantity,
     });
-    // Optional: Show a toast or notification
-    alert('Item added to cart!');
+
+    // Show toast notification
+    window.dispatchEvent(new CustomEvent('show-toast', {
+      detail: {
+        message: 'Item added to cart',
+        image: meubelLogo
+      }
+    }));
   };
 
   return (
@@ -108,8 +123,11 @@ const SingleProductDetails: React.FC = () => {
         </div>
         <button
           onClick={handleAddToCart}
-          className="px-8 py-3 bg-white text-gray-800 border-2 border-gray-800 rounded-lg hover:bg-gray-800 hover:text-white font-medium"
+          className="px-8 py-3 bg-white text-gray-800 border-2 border-gray-800 rounded-lg hover:bg-gray-800 hover:text-white font-medium flex items-center gap-2"
         >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+          </svg>
           Add To Cart
         </button>
       </div>
