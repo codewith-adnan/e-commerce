@@ -6,7 +6,7 @@ export interface ToastProps {
     onClose: () => void;
     duration?: number;
 }
-
+//dfvdf
 const Toast: React.FC<ToastProps> = ({ message, image, onClose, duration = 3000 }) => {
     useEffect(() => {
         const timer = setTimeout(() => {
