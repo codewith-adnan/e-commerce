@@ -34,15 +34,15 @@ const Footer = () => {
         </div>
 
         {/* Newsletter Section */}
-        <div>
+        <div className="w-full max-w-sm">
           <h4 className="font-semibold text-[#9F9F9F] mb-4">Newsletter</h4>
-          <div className="flex">
+          <div className="flex w-full">
             <input
               type="email"
               placeholder="Enter Your Email Address"
-              className="p-2 border-b border-gray-400 focus:outline-none focus:border-gray-900 flex-grow"
+              className="p-2 border-b border-gray-400 focus:outline-none focus:border-gray-900 flex-grow w-full"
             />
-            <button className="p-2 border-b border-gray-400 font-semibold text-gray-800 hover:text-gray-900 hover:border-gray-900 ml-2">
+            <button className="p-2 border-b border-gray-400 font-semibold text-gray-800 hover:text-gray-900 hover:border-gray-900 ml-2 shrink-0">
               SUBSCRIBE
             </button>
           </div>

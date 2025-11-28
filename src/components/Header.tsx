@@ -75,7 +75,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleCart }) => {
                 </svg>
               </button>
             ) : (
-              <form onSubmit={handleSearchSubmit} className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white border border-gray-300 rounded-full px-3 py-1 flex items-center shadow-md z-50 w-64">
+              <form onSubmit={handleSearchSubmit} className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white border border-gray-300 rounded-full px-3 py-1 flex items-center shadow-md z-50 w-48 md:w-64">
                 <input
                   type="text"
                   value={searchQuery}

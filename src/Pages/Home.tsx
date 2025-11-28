@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 
 import sideTable1 from '../assets/images/sidetable.png';
 import sofa1 from '../assets/images/Mask-group.png';
@@ -16,6 +17,7 @@ import instagramBg from '../assets/images/Rectangle17.png';
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
+  const { addToCart } = useCart();
 
   const handleOrderClick = () => {
     navigate('/pages/singleproduct');
@@ -92,26 +94,39 @@ const Home: React.FC = () => {
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
-            <div className="flex flex-col items-center text-center">
-              <img src={trentonSofa} alt="Trenton modular sofa_3" className="w-full h-58 object-contain mb-2" />
-              <h3 className="text-m font-medium text-gray-800 mb-1">Trenton modular sofa_3</h3>
-              <p className="text-xl font-bold text-gray-900">Rs. 25,000.00</p>
-            </div>
-            <div className="flex flex-col items-center text-center">
-              <img src={diningTable} alt="Granite dining table with dining chair" className="w-full h-58 object-contain mb-2" />
-              <h3 className="text-m font-medium text-gray-800 mb-1">Granite dining table with dining chair</h3>
-              <p className="text-xl font-bold text-gray-900">Rs. 25,000.00</p>
-            </div>
-            <div className="flex flex-col items-center text-center">
-              <img src={barStool} alt="Outdoor bar table and stool" className="w-full h-58 object-contain mb-2" />
-              <h3 className="text-m font-medium text-gray-800 mb-1">Outdoor bar table and stool</h3>
-              <p className="text-xl font-bold text-gray-900">Rs. 25,000.00</p>
-            </div>
-            <div className="flex flex-col items-center text-center">
-              <img src={consoleMirror} alt="Plain console with teak mirror" className="w-full h-58 object-contain mb-2" />
-              <h3 className="text-m font-medium text-gray-800 mb-1">Plain console with teak mirror</h3>
-              <p className="text-xl font-bold text-gray-900">Rs. 25,000.00</p>
-            </div>
+            {[
+              { id: 'tp1', name: 'Trenton modular sofa_3', price: 'Rs. 25,000.00', image: trentonSofa },
+              { id: 'tp2', name: 'Granite dining table with dining chair', price: 'Rs. 25,000.00', image: diningTable },
+              { id: 'tp3', name: 'Outdoor bar table and stool', price: 'Rs. 25,000.00', image: barStool },
+              { id: 'tp4', name: 'Plain console with teak mirror', price: 'Rs. 25,000.00', image: consoleMirror },
+            ].map((item) => (
+              <div key={item.id} className="flex flex-col items-center text-center group">
+                <img src={item.image} alt={item.name} className="w-full h-58 object-contain mb-2 transition-transform duration-300 group-hover:scale-105" />
+                <h3 className="text-m font-medium text-gray-800 mb-1">{item.name}</h3>
+                <div className="flex justify-between items-center w-full px-4">
+                  <p className="text-xl font-bold text-gray-900">{item.price}</p>
+                  <button
+                    onClick={() => {
+                      const numericPrice = parseFloat(item.price.replace(/[^0-9.]/g, ''));
+                      addToCart({
+                        id: item.id,
+                        name: item.name,
+                        price: numericPrice,
+                        image: item.image,
+                        quantity: 1,
+                      });
+                      alert('Item added to cart!');
+                    }}
+                    className="text-gray-800 hover:text-orange-500 transition-colors duration-200 focus:outline-none"
+                    title="Add to Cart"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
 
           <div className="mt-12">
