@@ -1,9 +1,12 @@
 import React from 'react';
+import { useCart } from '../context/CartContext'; // Import useCart
 
 import bannerBg from '../assets/images/Rectangle1.png'; // Replace with your actual path
 import meubelLogo from '../assets/icons/m tag.svg';
 
 const Checkout: React.FC = () => {
+  const { cartItems, getCartTotal } = useCart(); // Use context
+
   return (
     <>
       {/* Header Section */}
@@ -171,17 +174,19 @@ const Checkout: React.FC = () => {
           <div className="w-full sm:w-4/5 md:w-3/5 lg:w-2/5 px-4 mt-8 lg:mt-0">
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h3 className="text-xl font-bold text-gray-800 mb-4">Product</h3>
-              <div className="flex justify-between items-center mb-2">
-                <span className="text-gray-600">Asgaard sofa x 1</span>
-                <span className="font-semibold text-gray-800">Rs. 250,000.00</span>
-              </div>
+              {cartItems.map((item) => (
+                <div key={item.id} className="flex justify-between items-center mb-2">
+                  <span className="text-gray-600">{item.name} x {item.quantity}</span>
+                  <span className="font-semibold text-gray-800">Rs. {(item.price * item.quantity).toLocaleString('en-IN')}</span>
+                </div>
+              ))}
               <div className="flex justify-between items-center mb-4 border-b pb-4">
                 <span className="text-gray-600">Subtotal</span>
-                <span className="font-semibold text-gray-800">Rs. 250,000.00</span>
+                <span className="font-semibold text-gray-800">Rs. {getCartTotal().toLocaleString('en-IN')}</span>
               </div>
               <div className="flex justify-between items-center mb-6">
                 <span className="text-xl font-bold text-gray-800">Total</span>
-                <span className="text-xl font-bold text-[#B88E2F]">Rs. 250,000.00</span>
+                <span className="text-xl font-bold text-[#B88E2F]">Rs. {getCartTotal().toLocaleString('en-IN')}</span>
               </div>
 
               <div className="mb-6">

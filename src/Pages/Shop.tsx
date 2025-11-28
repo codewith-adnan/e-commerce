@@ -85,17 +85,22 @@ const ProductCard: React.FC<Product> = ({ id, name, price, imageUrl }) => {
   };
 
   return (
-    <div className="bg-white rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 group">
+    <div className="bg-white rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 group shadow-sm hover:shadow-md">
       <img src={imageUrl} alt={name} className="w-full h-48 object-cover object-center" />
-      <div className="p-4 text-center">
-        <h3 className="text-lg font-medium text-gray-800">{name}</h3>
-        <p className="mt-1 text-gray-600">{price}</p>
-        <button
-          onClick={handleAddToCart}
-          className="mt-3 px-4 py-2 bg-gray-100 text-gray-800 rounded-md hover:bg-gray-800 hover:text-white transition-colors duration-300 opacity-0 group-hover:opacity-100"
-        >
-          Add to Cart
-        </button>
+      <div className="p-4">
+        <h3 className="text-lg font-medium text-gray-800 text-center">{name}</h3>
+        <div className="mt-2 flex justify-between items-center">
+          <p className="text-gray-600 font-semibold">{price}</p>
+          <button
+            onClick={handleAddToCart}
+            className="text-gray-800 hover:text-orange-500 transition-colors duration-200 focus:outline-none"
+            title="Add to Cart"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   );

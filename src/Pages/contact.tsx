@@ -1,12 +1,35 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import locationIcon from '../assets/icons/location.png';
 import phoneIcon from '../assets/icons/bxs_phone.png';
 import clockIcon from '../assets/icons/bi_clock-fill.png';
+import bannerBg from '../assets/images/Rectangle1.png';
+import meubelLogo from '../assets/icons/m tag.svg';
 
 const ContactUs = () => {
   return (
     <>
       {/* Header Section */}
+      <div className="relative h-48 overflow-hidden">
+        <img
+          src={bannerBg}
+          alt="Contact Banner"
+          className="absolute inset-0 w-full h-full object-cover object-bottom"
+        />
+        <div className="relative z-10 flex flex-col items-center justify-center h-full text-gray-800">
+          <img src={meubelLogo} alt="Meubel Logo" className="h-18 w-auto" />
+          <h1 className="text-3xl tracking-wide">Contact</h1>
+          <p className="text-sm mt-1 font-bold flex flex-row items-center">
+            <Link to="/" className="hover:underline text-black">Home</Link>
+            <span className="mx-1 font-bold text-black">&gt;</span>
+            <Link to="/pages/shop" className="hover:underline text-black">Shop</Link>
+            <span className="mx-1 font-bold text-black">&gt;</span>
+            <span className="text-gray-500">Contact</span>
+          </p>
+        </div>
+      </div>
+
+      {/* Intro Section */}
       <div className="pt-16 pb-12 text-center">
         <h2 className="text-3xl font-bold text-gray-900 mb-4">Get In Touch With Us</h2>
         <p className="text-gray-600 max-w-2xl mx-auto px-4">

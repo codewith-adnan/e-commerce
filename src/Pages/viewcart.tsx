@@ -1,10 +1,13 @@
 import React from 'react';
-
+import { useNavigate } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 import bannerBg from '../assets/images/Rectangle1.png';
 import meubelLogo from '../assets/icons/m tag.svg';
-import asgaardSofa from '../assets/images/Asgaard sofa 1.png';
 
 const ViewCart: React.FC = () => {
+  const { cartItems, removeFromCart, getCartTotal } = useCart();
+  const navigate = useNavigate();
+
   return (
     <>
       <header>
@@ -31,7 +34,7 @@ const ViewCart: React.FC = () => {
       <div className="container mx-auto px-4 py-12">
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="w-full lg:w-3/4 bg-white p-6 rounded-lg shadow-md">
-            <div className="overflow-x-auto"> {/* Added for horizontal scrolling on small screens */}
+            <div className="overflow-x-auto">
               <table className="min-w-full divide-y divide-gray-200">
                 <thead className="bg-[#F9F1E7]">
                   <tr>
@@ -47,45 +50,55 @@ const ViewCart: React.FC = () => {
                     <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
                       Subtotal
                     </th>
-                    <th scope="col" className="relative px-6 py-3">
-                      <span className="sr-only">Remove</span>
+                    <th scope="col" className="px-6 py-3 text-center text-xs font-medium text-gray-700 uppercase tracking-wider">
+                      Action
                     </th>
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  <tr>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="flex items-center">
-                        <div className="flex-shrink-0 h-20 w-20 bg-[#F9F1E7] rounded-lg p-2">
-                          <img className="h-full w-full object-contain" src={asgaardSofa} alt="Asgaard sofa" />
-                        </div>
-                        <div className="ml-4">
-                          <div className="text-sm font-medium text-gray-900">Asgaard sofa</div>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">Rs. 250,000.00</div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <input
-                        type="number"
-                        defaultValue="1"
-                        min="1"
-                        className="w-16 px-3 py-1 border border-gray-300 rounded-md text-center text-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                      />
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      Rs. 250,000.00
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                      <button className="text-red-600 hover:text-red-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                          <path fillRule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm6 0a1 1 0 01-2 0v6a1 1 0 112 0V8z" clipRule="evenodd" />
-                        </svg>
-                      </button>
-                    </td>
-                  </tr>
+                  {cartItems.length === 0 ? (
+                    <tr>
+                      <td colSpan={5} className="px-6 py-4 text-center text-gray-500">
+                        Your cart is empty.
+                      </td>
+                    </tr>
+                  ) : (
+                    cartItems.map((item) => (
+                      <tr key={item.id}>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="flex items-center">
+                            <div className="flex-shrink-0 h-20 w-20 bg-[#F9F1E7] rounded-lg p-2">
+                              <img className="h-full w-full object-contain" src={item.image} alt={item.name} />
+                            </div>
+                            <div className="ml-4">
+                              <div className="text-sm font-medium text-gray-900">{item.name}</div>
+                            </div>
+                          </div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="text-sm text-gray-900">Rs. {item.price.toLocaleString('en-IN')}</div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <span className="px-3 py-1 border border-gray-300 rounded-md text-sm">
+                            {item.quantity}
+                          </span>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                          Rs. {(item.price * item.quantity).toLocaleString('en-IN')}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
+                          <button
+                            onClick={() => removeFromCart(item.id)}
+                            className="text-[#B88E2F] hover:text-red-700 transition-colors"
+                          >
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                              <path fillRule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm6 0a1 1 0 01-2 0v6a1 1 0 112 0V8z" clipRule="evenodd" />
+                            </svg>
+                          </button>
+                        </td>
+                      </tr>
+                    ))
+                  )}
                 </tbody>
               </table>
             </div>
@@ -95,14 +108,15 @@ const ViewCart: React.FC = () => {
             <h3 className="text-xl font-bold text-gray-800 mb-6 text-center">Cart Totals</h3>
             <div className="flex justify-between items-center mb-4">
               <span className="text-gray-700">Subtotal</span>
-              <span className="font-semibold text-gray-800">Rs. 250,000.00</span>
+              <span className="font-semibold text-gray-800">Rs. {getCartTotal().toLocaleString('en-IN')}</span>
             </div>
             <div className="flex justify-between items-center mb-8">
               <span className="text-lg font-bold text-gray-800">Total</span>
-              <span className="text-lg font-bold text-[#B88E2F]">Rs. 250,000.00</span>
+              <span className="text-lg font-bold text-[#B88E2F]">Rs. {getCartTotal().toLocaleString('en-IN')}</span>
             </div>
             <button
               type="button"
+              onClick={() => navigate('/pages/checkout')}
               className="w-full py-3 px-4 border border-gray-700 text-gray-700 font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
             >
               Check Out
