@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import bannerBg from '../assets/images/Rectangle1.png';
+import meubelLogo from '../assets/icons/m tag.svg';
 import product1 from '../assets/images/Mask-group1.png';
 import product2 from '../assets/images/Mask-group2.png';
 import product3 from '../assets/images/Mask-group3.png';
@@ -24,7 +25,6 @@ import product16 from '../assets/images/Outdoor-sofa-set.png';
 import filterIcon from '../assets/icons/filter.svg';
 import gridIcon from '../assets/icons/four dots.svg';
 import listIcon from '../assets/icons/burger.svg';
-import meubelLogo from '../assets/icons/m tag.svg';
 
 interface Product {
   id: string;
@@ -86,7 +86,7 @@ const ProductCard: React.FC<Product> = ({ id, name, price, imageUrl }) => {
     window.dispatchEvent(new CustomEvent('show-toast', {
       detail: {
         message: 'Item added to cart',
-        image: imageUrl
+        image: meubelLogo
       }
     }));
   };

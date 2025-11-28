@@ -14,6 +14,7 @@ import barStool from '../assets/images/Mask-group3.png';
 import consoleMirror from '../assets/images/Mask-group4.png';
 import rocketSeater from '../assets/images/single-seater.png';
 import instagramBg from '../assets/images/Rectangle17.png';
+import meubelLogo from '../assets/icons/m tag.svg';
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -124,7 +125,7 @@ const Home: React.FC = () => {
                       window.dispatchEvent(new CustomEvent('show-toast', {
                         detail: {
                           message: 'Item added to cart',
-                          image: item.image
+                          image: meubelLogo
                         }
                       }));
                     }}
