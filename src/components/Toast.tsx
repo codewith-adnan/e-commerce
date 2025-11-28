@@ -17,10 +17,10 @@ const Toast: React.FC<ToastProps> = ({ message, image, onClose, duration = 3000 
     }, [duration, onClose]);
 
     return (
-        <div className="fixed top-24 right-4 z-50 animate-slide-in-right">
+        <div className="fixed top-4 right-4 z-50 animate-slide-in-right">
             <div className="bg-white rounded-lg shadow-lg p-4 flex items-center gap-3 min-w-[300px] max-w-[400px] border border-gray-200">
                 {image && (
-                    <div className="flex-shrink-0 w-16 h-16 bg-[#F9F1E7] rounded-lg p-2 flex items-center justify-center">
+                    <div className="flex-shrink-0 w-16 h-10  flex items-center justify-center">
                         <img src={image} alt="Logo" className="w-full h-full object-contain" />
                     </div>
                 )}
