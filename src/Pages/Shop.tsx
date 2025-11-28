@@ -1,5 +1,7 @@
 // src/Shop.tsx
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 import bannerBg from '../assets/images/Rectangle1.png';
 import product1 from '../assets/images/Mask-group1.png';
 import product2 from '../assets/images/Mask-group2.png';
@@ -48,19 +50,91 @@ const productsData: Product[] = [
   { id: '14', name: 'Asgaard sofa', price: 'Rs. 250,000.00', imageUrl: product14 },
   { id: '15', name: 'Maya sofa three seater', price: 'Rs. 115,000.00', imageUrl: product15 },
   { id: '16', name: 'Outdoor sofa set', price: 'Rs. 244,000.00', imageUrl: product16 },
+  // Duplicate data to demonstrate pagination
+  { id: '17', name: 'Trenton modular sofa_3', price: 'Rs. 25,000.00', imageUrl: product1 },
+  { id: '18', name: 'Granite dining table with dining chair', price: 'Rs. 25,000.00', imageUrl: product2 },
+  { id: '19', name: 'Outdoor bar table and stool', price: 'Rs. 25,000.00', imageUrl: product3 },
+  { id: '20', name: 'Plain console with teak mirror', price: 'Rs. 25,000.00', imageUrl: product4 },
+  { id: '21', name: 'Chailn coffee table', price: 'Rs. 15,000.00', imageUrl: product5 },
+  { id: '22', name: 'Front coffee table', price: 'Rs. 225,000.00', imageUrl: product6 },
+  { id: '23', name: 'Round coffee table_color 2', price: 'Rs. 251,000.00', imageUrl: product7 },
+  { id: '24', name: 'Reclaimed teak coffee table', price: 'Rs. 25,200.00', imageUrl: product8 },
+  { id: '25', name: 'Plain console_', price: 'Rs. 258,200.00', imageUrl: product9 },
+  { id: '26', name: 'Reclaimed teak Sideboard', price: 'Rs. 20,000.00', imageUrl: product10 },
+  { id: '27', name: 'SJP_0825', price: 'Rs. 200,000.00', imageUrl: product11 },
+  { id: '28', name: 'Delta chair and table', price: 'Rs. 100,000.00', imageUrl: product12 },
+  { id: '29', name: 'Granite square side table', price: 'Rs. 258,800.00', imageUrl: product13 },
+  { id: '30', name: 'Asgaard sofa', price: 'Rs. 250,000.00', imageUrl: product14 },
+  { id: '31', name: 'Maya sofa three seater', price: 'Rs. 115,000.00', imageUrl: product15 },
+  { id: '32', name: 'Outdoor sofa set', price: 'Rs. 244,000.00', imageUrl: product16 },
 ];
 
-const Shop: React.FC = () => {
-  const ProductCard: React.FC<Product> = ({ name, price, imageUrl }) => {
-    return (
-      <div className="bg-white rounded-lg overflow-hidden transform transition duration-300 hover:scale-105">
-        <img src={imageUrl} alt={name} className="w-full h-48 object-cover object-center" />
-        <div className="p-4 text-center">
-          <h3 className="text-lg font-medium text-gray-800">{name}</h3>
-          <p className="mt-1 text-gray-600">{price}</p>
-        </div>
+const ProductCard: React.FC<Product> = ({ id, name, price, imageUrl }) => {
+  const { addToCart } = useCart();
+
+  const handleAddToCart = () => {
+    const numericPrice = parseFloat(price.replace(/[^0-9.]/g, ''));
+    addToCart({
+      id,
+      name,
+      price: numericPrice,
+      image: imageUrl,
+      quantity: 1,
+    });
+    alert('Item added to cart!');
+  };
+
+  return (
+    <div className="bg-white rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 group">
+      <img src={imageUrl} alt={name} className="w-full h-48 object-cover object-center" />
+      <div className="p-4 text-center">
+        <h3 className="text-lg font-medium text-gray-800">{name}</h3>
+        <p className="mt-1 text-gray-600">{price}</p>
+        <button
+          onClick={handleAddToCart}
+          className="mt-3 px-4 py-2 bg-gray-100 text-gray-800 rounded-md hover:bg-gray-800 hover:text-white transition-colors duration-300 opacity-0 group-hover:opacity-100"
+        >
+          Add to Cart
+        </button>
       </div>
-    );
+    </div>
+  );
+};
+
+const Shop: React.FC = () => {
+  const location = useLocation();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [transitionDirection, setTransitionDirection] = useState<'left' | 'right' | null>(null);
+  const itemsPerPage = 16;
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const search = params.get('search');
+    if (search) {
+      setSearchQuery(search);
+      setCurrentPage(1);
+    }
+  }, [location.search]);
+
+  const filteredProducts = productsData.filter(product =>
+    product.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentProducts = filteredProducts.slice(startIndex, startIndex + itemsPerPage);
+
+  const handlePageChange = (page: number) => {
+    if (page > currentPage) {
+      setTransitionDirection('right');
+    } else {
+      setTransitionDirection('left');
+    }
+    setTimeout(() => {
+      setCurrentPage(page);
+      setTransitionDirection(null);
+    }, 300);
   };
 
   return (
@@ -71,12 +145,14 @@ const Shop: React.FC = () => {
           <img
             src={bannerBg}
             alt="Shop Banner"
-            className="absolute inset-0 w-full h-full object-cover  object-bottom"
+            className="absolute inset-0 w-full h-full object-cover object-bottom"
           />
           <div className="relative z-10 flex flex-col items-center justify-center h-full text-gray-800">
             <img src={meubelLogo} alt="Meubel Logo" className="h-18 w-auto" />
-            <h1 className="text-3xl   tracking-wide">Shop</h1>
-            <p className="text-sm mt-1 font-bold flex flex-row">Home <p className="mx-1 font-bold">&gt;</p> Shop</p>
+            <h1 className="text-3xl tracking-wide">Shop</h1>
+            <p className="text-sm mt-1 font-bold flex flex-row">
+              <Link to="/" className="hover:underline">Home</Link> <p className="mx-1 font-bold">&gt;</p> Shop
+            </p>
           </div>
         </div>
       </header>
@@ -94,7 +170,9 @@ const Shop: React.FC = () => {
               <input
                 type="text"
                 placeholder="Search..."
-                className="pl-3 pr-4 py-1   rounded-md  text-sm"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-3 pr-4 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-gray-400 text-sm"
               />
             </div>
             <div className="flex space-x-4 ml-4">
@@ -106,28 +184,36 @@ const Shop: React.FC = () => {
               </button>
             </div>
             <div className="h-6 w-px bg-gray-300 mx-4 hidden md:block"></div>
-            <span className="text-black text-sm hidden md:block">Showing 1-16 of 32 results</span>
+            <span className="text-black text-sm hidden md:block">
+              Showing {startIndex + 1}-{Math.min(startIndex + itemsPerPage, filteredProducts.length)} of {filteredProducts.length} results
+            </span>
           </div>
           <div className="flex items-center space-x-4 text-sm hidden md:flex">
             <div className="flex items-center space-x-2">
               <span className="text-black">Show</span>
-              <div className="px-2 py-2 bg-white  text-gray-400">16</div>
+              <div className="px-2 py-2 bg-white text-gray-400">{itemsPerPage}</div>
             </div>
             <div className="flex items-center space-x-2">
               <span className="text-black">Sort by</span>
-              <div className="px-2 py-2  bg-white  text-gray-400">Default</div>
+              <div className="px-2 py-2 bg-white text-gray-400">Default</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Product Grid Section */}
-      <section className="py-8 bg-white">
+      <section className="py-8 bg-white overflow-hidden">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {productsData.map(product => (
+          <div
+            className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 transition-transform duration-300 ease-in-out ${transitionDirection === 'left' ? 'translate-x-full opacity-0' :
+              transitionDirection === 'right' ? '-translate-x-full opacity-0' :
+                'translate-x-0 opacity-100'
+              }`}
+          >
+            {currentProducts.map(product => (
               <ProductCard
                 key={product.id}
+                id={product.id}
                 name={product.name}
                 price={product.price}
                 imageUrl={product.imageUrl}
@@ -137,14 +223,28 @@ const Shop: React.FC = () => {
         </div>
       </section>
 
-      {/* Pagination Section (Static UI Only) */}
+      {/* Pagination Section */}
       <section className="py-8 bg-white">
         <div className="container mx-auto px-4 flex justify-center">
           <nav className="flex space-x-2">
-            <div className="w-10 h-10 flex items-center justify-center rounded-md text-lg bg-[#FBEBB5] text-gray-800">1</div>
-            <div className="w-10 h-10 flex items-center justify-center rounded-md text-lg bg-[#FFF9E5] text-gray-700">2</div>
-            <div className="w-10 h-10 flex items-center justify-center rounded-md text-lg bg-[#FFF9E5] text-gray-700">3</div>
-            <div className="w-20 h-10 flex items-center justify-center rounded-md bg-[#FFF9E5] text-gray-700 ml-2">Next</div>
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+              <button
+                key={page}
+                onClick={() => handlePageChange(page)}
+                className={`w-10 h-10 flex items-center justify-center rounded-md text-lg ${currentPage === page ? 'bg-[#FBEBB5] text-gray-800' : 'bg-[#FFF9E5] text-gray-700'
+                  }`}
+              >
+                {page}
+              </button>
+            ))}
+            {currentPage < totalPages && (
+              <button
+                onClick={() => handlePageChange(currentPage + 1)}
+                className="w-20 h-10 flex items-center justify-center rounded-md bg-[#FFF9E5] text-gray-700 ml-2"
+              >
+                Next
+              </button>
+            )}
           </nav>
         </div>
       </section>

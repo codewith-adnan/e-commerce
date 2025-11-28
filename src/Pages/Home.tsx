@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 import sideTable1 from '../assets/images/sidetable.png';
 import sofa1 from '../assets/images/Mask-group.png';
@@ -17,15 +17,12 @@ import instagramBg from '../assets/images/Rectangle17.png';
 const Home: React.FC = () => {
   const navigate = useNavigate();
 
-  const handleShopNowClick = () => {
-    navigate('/pages/shop');
-  };
-
   const handleOrderClick = () => {
     navigate('/pages/singleproduct');
   };
 
-  const handleViewAllPostsClick = () => {
+  const handleViewAllPostsClick = (e: React.MouseEvent) => {
+    e.preventDefault();
     navigate('/pages/myblogs');
   };
 
@@ -36,13 +33,13 @@ const Home: React.FC = () => {
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight mb-6">
             Rocket single <br /> seater
           </h2>
-          <a
-            href="/pages/shop"
+          <Link
+            to="/pages/shop"
             className="relative text-lg text-gray-900 font-semibold pb-1 group inline-block"
           >
             Shop Now
             <span className="absolute left-0 bottom-0 w-full h-0.5 bg-gray-900 transform scale-x-100 transition-transform duration-300"></span>
-          </a>
+          </Link>
         </div>
 
         <div className="flex-1 flex justify-center md:justify-end order-1 md:order-2">
@@ -63,12 +60,12 @@ const Home: React.FC = () => {
               className="w-full h-auto object-contain max-h-[500px] md:max-h-[700px] mb-4"
             />
             <h3 className="text-3xl pl-14 mt-[-7rem] font-semibold text-gray-900 mb-2 ">Side table</h3>
-            <a href="/pages/shop" className="pl-14 text-lg text-gray-800 font-medium pb-1 inline-block">
+            <Link to="/pages/shop" className="pl-14 text-lg text-gray-800 font-medium pb-1 inline-block">
               <span className="relative group inline-block">
                 View More
                 <span className="absolute left-0 bottom-0 w-full h-0.5 bg-gray-800 transform scale-x-100 transition-transform duration-300"></span>
               </span>
-            </a>
+            </Link>
           </div>
           <div className="flex flex-col items-start text-left max-w-sm mx-auto">
             <img
@@ -77,12 +74,12 @@ const Home: React.FC = () => {
               className="w-full h-auto object-contain max-h-[500px] md:max-h-[700px] mb-4"
             />
             <h3 className="text-3xl mt-[-7rem] pl-14 font-semibold text-[#000000] mb-2 ">Side table</h3>
-            <a href="/pages/shop" className="pl-14 text-lg text-gray-800 font-medium pb-1 inline-block">
+            <Link to="/pages/shop" className="pl-14 text-lg text-gray-800 font-medium pb-1 inline-block">
               <span className="relative group inline-block">
                 View More
                 <span className="absolute left-0 bottom-0 w-full h-0.5 bg-gray-800 transform scale-x-100 transition-transform duration-300"></span>
               </span>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -118,10 +115,10 @@ const Home: React.FC = () => {
           </div>
 
           <div className="mt-12">
-            <a href="/pages/shop" className="relative text-lg text-gray-800 font-medium pb-1 group">
+            <Link to="/pages/shop" className="relative text-lg text-gray-800 font-medium pb-1 group">
               View More
               <span className="absolute left-0 bottom-0 w-full h-0.5 bg-gray-800 transform scale-x-100 transition-transform duration-300"></span>
-            </a>
+            </Link>
           </div>
         </div>
       </section>

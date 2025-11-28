@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // Import your images
 import bannerBg from '../assets/images/Rectangle1.png'; // Adjust the path as needed
@@ -20,7 +21,7 @@ const MyAcount: React.FC = () => {
             <img src={meubelLogo} alt="Meubel Logo" className="h-18 w-auto" />
             <h1 className="text-3xl tracking-wide">My Account</h1>
             <p className="text-sm mt-1 font-bold flex flex-row">
-              <a href="/" className="hover:underline">Home</a> <p className="mx-1 font-bold">&gt;</p> My Account
+              <Link to="/" className="hover:underline">Home</Link> <p className="mx-1 font-bold">&gt;</p> My Account
             </p>
           </div>
         </div>

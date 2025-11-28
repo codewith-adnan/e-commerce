@@ -1,26 +1,16 @@
 // src/components/ShoppingCart.tsx
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Correctly imported useNavigate
-import asgaardSofaImage from '../assets/images/Asgaard sofa 1.png'; // Make sure this path is correct
+import { useNavigate } from 'react-router-dom';
+import { useCart } from '../context/CartContext'; // Import useCart from context
 
 interface ShoppingCartProps {
   onClose: () => void;
 }
 
 const ShoppingCart: React.FC<ShoppingCartProps> = ({ onClose }) => {
-  const navigate = useNavigate(); // Correctly initialize the navigate function
-
-  const cartItems = [
-    {
-      id: 1,
-      name: 'Asgaard sofa',
-      quantity: 1,
-      price: 250000.00,
-      image: asgaardSofaImage,
-    },
-  ];
-
-  const subtotal = cartItems.reduce((sum, item) => sum + item.quantity * item.price, 0);
+  const navigate = useNavigate();
+  // Replace hardcoded cartItems and subtotal with data from useCart
+  const { cartItems, removeFromCart, getCartTotal } = useCart();
 
   // This function correctly closes the cart and then navigates
   const handleViewCartClick = () => {
@@ -70,40 +60,48 @@ const ShoppingCart: React.FC<ShoppingCartProps> = ({ onClose }) => {
         </div>
 
         <div className="flex-grow p-6 overflow-y-auto">
-          {cartItems.map((item) => (
-            <div key={item.id} className="flex items-center space-x-4 mb-6">
-              <div className="w-24 h-24 bg-[#FFF9E5] rounded-lg flex items-center justify-center p-2">
-                <img src={item.image} alt={item.name} className="max-w-full max-h-full object-contain" />
-              </div>
-              <div className="flex-grow">
-                <p className="font-medium text-gray-800">{item.name}</p>
-                <p className="text-gray-600 text-sm">
-                  {item.quantity} <span className="mx-1">x</span> Rs. {item.price.toLocaleString('en-IN')}
-                </p>
-              </div>
-              <button className="text-gray-400 hover:text-red-500">
-                {/* Delete item SVG icon */}
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-5 h-5"
+          {cartItems.length === 0 ? (
+            <p className="text-gray-500 text-center">Your cart is empty.</p>
+          ) : (
+            cartItems.map((item) => (
+              <div key={item.id} className="flex items-center space-x-4 mb-6">
+                <div className="w-24 h-24 bg-[#FFF9E5] rounded-lg flex items-center justify-center p-2">
+                  <img src={item.image} alt={item.name} className="max-w-full max-h-full object-contain" />
+                </div>
+                <div className="flex-grow">
+                  <p className="font-medium text-gray-800">{item.name}</p>
+                  <p className="text-gray-600 text-sm">
+                    {item.quantity} <span className="mx-1">x</span> Rs. {item.price.toLocaleString('en-IN')}
+                  </p>
+                </div>
+                <button
+                  className="text-gray-400 hover:text-red-500"
+                  onClick={() => removeFromCart(item.id)} // Implement removeFromCart functionality
                 >
-                  <circle cx="12" cy="12" r="10" fill="#E0E0E0"/>
-                  <path d="M15 9L9 15" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M9 9L15 15" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
-            </div>
-          ))}
+                  {/* Delete item SVG icon */}
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5"
+                  >
+                    <circle cx="12" cy="12" r="10" fill="#E0E0E0" />
+                    <path d="M15 9L9 15" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M9 9L15 15" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+              </div>
+            ))
+          )}
         </div>
 
         <div className="p-6 border-t border-gray-200">
           <div className="flex justify-between items-center mb-6">
             <p className="text-gray-700">Subtotal</p>
-            <p className="text-lg font-bold text-[#B88E2F]">Rs. {subtotal.toLocaleString('en-IN')}</p>
+            {/* Display correct total from context */}
+            <p className="text-lg font-bold text-[#B88E2F]">Rs. {getCartTotal().toLocaleString('en-IN')}</p>
           </div>
           <div className="flex space-x-4">
             {/* View Cart Button */}

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import bannerBg from '../assets/images/Rectangle1.png';
 import meubelLogo from '../assets/icons/m tag.svg';
 import aboutImage from '../assets/images/Mask-group1.png'; // Reusing a product image for the About section
@@ -21,7 +22,7 @@ const About: React.FC = () => {
                         <img src={meubelLogo} alt="Meubel Logo" className="h-18 w-auto" />
                         <h1 className="text-3xl tracking-wide">About</h1>
                         <p className="text-sm mt-1 font-bold flex flex-row">
-                            Home <p className="mx-1 font-bold">&gt;</p> About
+                            <Link to="/" className="hover:underline">Home</Link> <p className="mx-1 font-bold">&gt;</p> About
                         </p>
                     </div>
                 </div>
