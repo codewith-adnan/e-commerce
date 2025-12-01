@@ -27,10 +27,10 @@ const MyAcount: React.FC = () => {
         </div>
       </header>
 
-      {/* Main Content Area (Login/Register Card) */}
-      <div className="flex-grow flex items-center justify-center p-4 py-12"> {/* flex-grow to push footer down */}
+     
+      <div className="flex-grow flex items-center justify-center p-4 py-12"> 
         <div className="flex flex-col md:flex-row gap-8 max-w-6xl w-full">
-          {/* Log In Section */}
+         
           <div className="w-full md:w-1/2 p-8 bg-white rounded-lg shadow-lg">
             <h2 className="text-2xl font-semibold mb-6 text-gray-800">Log In</h2>
             <form>
@@ -78,7 +78,7 @@ const MyAcount: React.FC = () => {
             </form>
           </div>
 
-          {/* Register Section */}
+        
           <div className="w-full md:w-1/2 p-8 bg-white rounded-lg shadow-lg">
             <h2 className="text-2xl font-semibold mb-6 text-gray-800">Register</h2>
             <form>
@@ -114,7 +114,7 @@ const MyAcount: React.FC = () => {
         </div>
       </div>
 
-      {/* Footer Section */}
+   
       <footer className="w-full">
         <div className="bg-[#FAF4F4] py-12">
           <div className="container mx-auto px-4 flex flex-wrap justify-around items-start text-gray-600 text-sm">
