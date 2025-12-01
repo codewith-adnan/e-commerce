@@ -12,16 +12,16 @@ const ShoppingCart: React.FC<ShoppingCartProps> = ({ onClose }) => {
   // Replace hardcoded cartItems and subtotal with data from useCart
   const { cartItems, removeFromCart, getCartTotal } = useCart();
 
-  // This function correctly closes the cart and then navigates
+ 
   const handleViewCartClick = () => {
     onClose(); // Close the sidebar first
-    navigate('/pages/viewcart'); // Then navigate to the ViewCart page
+    navigate('/pages/viewcart'); 
   };
 
-  // This function correctly closes the cart and then navigates
+
   const handleCheckoutClick = () => {
-    onClose(); // Close the sidebar first
-    navigate('/pages/checkout'); // Then navigate to the Checkout page
+    onClose(); 
+    navigate('/pages/checkout'); 
   };
 
   return (
@@ -37,9 +37,9 @@ const ShoppingCart: React.FC<ShoppingCartProps> = ({ onClose }) => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             className="text-gray-600 cursor-pointer"
-            onClick={onClose} // Calls the onClose prop
+            onClick={onClose} 
           >
-            {/* SVG path for the close icon */}
+          
             <path
               d="M17 10C17 9.73478 16.8946 9.48043 16.7071 9.29289C16.5196 9.10536 16.2652 9 16 9H8C7.73478 9 7.48043 9.10536 7.29289 9.29289C7.10536 9.48043 7 9.73478 7 10V16C7 16.2652 7.10536 16.5196 7.29289 16.7071C7.48043 16.8946 7.73478 17 8 17H16C16.2652 17 16.5196 16.8946 16.7071 16.7071C16.8946 16.5196 17 16.2652 17 16V10Z"
               stroke="#000"
@@ -76,9 +76,9 @@ const ShoppingCart: React.FC<ShoppingCartProps> = ({ onClose }) => {
                 </div>
                 <button
                   className="text-gray-400 hover:text-red-500"
-                  onClick={() => removeFromCart(item.id)} // Implement removeFromCart functionality
+                  onClick={() => removeFromCart(item.id)} 
                 >
-                  {/* Delete item SVG icon */}
+                  
                   <svg
                     width="20"
                     height="20"
@@ -100,20 +100,20 @@ const ShoppingCart: React.FC<ShoppingCartProps> = ({ onClose }) => {
         <div className="p-6 border-t border-gray-200">
           <div className="flex justify-between items-center mb-6">
             <p className="text-gray-700">Subtotal</p>
-            {/* Display correct total from context */}
+            
             <p className="text-lg font-bold text-[#B88E2F]">Rs. {getCartTotal().toLocaleString('en-IN')}</p>
           </div>
           <div className="flex space-x-4">
-            {/* View Cart Button */}
+           
             <button
-              onClick={handleViewCartClick} // Correctly calls function to close then navigate
+              onClick={handleViewCartClick} 
               className="flex-1 px-4 py-2 border border-gray-800 rounded-xl text-gray-800 hover:bg-gray-800 hover:text-white transition-colors duration-200"
             >
               View Cart
             </button>
-            {/* Checkout Button */}
+         
             <button
-              onClick={handleCheckoutClick} // Correctly calls function to close then navigate
+              onClick={handleCheckoutClick} 
               className="flex-1 px-4 py-2 border border-gray-800 rounded-xl text-gray-800 hover:bg-gray-800 hover:text-white transition-colors duration-200"
             >
               Checkout
