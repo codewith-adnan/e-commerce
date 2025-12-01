@@ -37,9 +37,9 @@ const ContactUs = () => {
         </p>
       </div>
 
-      {/* Main Content */}
+     
       <div className="flex flex-col lg:flex-row gap-8 justify-center max-w-5xl mx-auto px-4 pb-20">
-        {/* Information column */}
+     
         <div className="w-full lg:w-1/2 flex flex-col space-y-8 p-6">
           <div className="flex items-start space-x-4">
             <img src={locationIcon} alt="Address Icon" className="h-6 w-6 mt-1" />
@@ -64,7 +64,7 @@ const ContactUs = () => {
           </div>
         </div>
 
-        {/* Form column */}
+       
         <div className="w-full lg:w-1/2 p-6">
           <form className="space-y-6">
             <div>
@@ -113,7 +113,7 @@ const ContactUs = () => {
         </div>
       </div>
 
-      {/* Features Section */}
+     
       <div className="bg-[#FAF4F4] py-12">
         <div className="container mx-auto px-4 flex flex-wrap justify-around items-start text-gray-600 text-sm text-center">
           <div className="w-full sm:w-1/3 mb-6 sm:mb-0">
