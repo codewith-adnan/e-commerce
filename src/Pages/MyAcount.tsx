@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// Import your images
-import bannerBg from '../assets/images/Rectangle1.png'; // Adjust the path as needed
-import meubelLogo from '../assets/icons/m tag.svg'; // Adjust the path as needed
+
+import bannerBg from '../assets/images/Rectangle1.png'; 
+import meubelLogo from '../assets/icons/m tag.svg'; 
 
 const MyAcount: React.FC = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50"> {/* Main container for the whole page */}
+    <div className="flex flex-col min-h-screen bg-gray-50"> 
 
-      {/* Header Section */}
+   
       <header className="w-full">
         <div className="relative h-48 overflow-hidden">
           <img
