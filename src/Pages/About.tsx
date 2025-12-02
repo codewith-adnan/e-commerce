@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import bannerBg from '../assets/images/Rectangle1.png';
 import meubelLogo from '../assets/icons/m tag.svg';
-import aboutImage from '../assets/images/Mask-group1.png'; // Reusing a product image for the About section
+import aboutImage from '../assets/images/Mask-group1.png'; 
 import focusImage1 from '../assets/images/Mask-group.png';
 import focusImage2 from '../assets/images/Mask-group2.png';
 import focusImage3 from '../assets/images/Rectangle13.png';
@@ -10,7 +10,7 @@ import focusImage3 from '../assets/images/Rectangle13.png';
 const About: React.FC = () => {
     return (
         <div className="flex flex-col min-h-screen bg-gray-50 font-sans text-[#333]">
-            {/* Header Section */}
+          
             <header className="w-full">
                 <div className="relative h-48 overflow-hidden">
                     <img

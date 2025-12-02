@@ -9,12 +9,12 @@ interface ShoppingCartProps {
 
 const ShoppingCart: React.FC<ShoppingCartProps> = ({ onClose }) => {
   const navigate = useNavigate();
-  // Replace hardcoded cartItems and subtotal with data from useCart
+ 
   const { cartItems, removeFromCart, getCartTotal } = useCart();
 
  
   const handleViewCartClick = () => {
-    onClose(); // Close the sidebar first
+    onClose(); 
     navigate('/pages/viewcart'); 
   };
 
@@ -29,7 +29,7 @@ const ShoppingCart: React.FC<ShoppingCartProps> = ({ onClose }) => {
       <div className="bg-white w-full max-w-sm h-full shadow-lg flex flex-col" onClick={(e) => e.stopPropagation()}>
         <div className="flex justify-between items-center p-6 border-b border-gray-200">
           <h2 className="text-2xl font-bold text-gray-800">Shopping Cart</h2>
-          {/* Close button for the cart */}
+         
           <svg
             width="24"
             height="24"
