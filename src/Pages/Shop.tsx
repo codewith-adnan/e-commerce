@@ -21,7 +21,7 @@ import product14 from '../assets/images/Asgaard sofa 1.png';
 import product15 from '../assets/images/Maya-sofa-three-seater.png';
 import product16 from '../assets/images/Outdoor-sofa-set.png';
 
-// Local icon imports
+
 import filterIcon from '../assets/icons/filter.svg';
 import gridIcon from '../assets/icons/four dots.svg';
 import listIcon from '../assets/icons/burger.svg';
@@ -82,7 +82,7 @@ const ProductCard: React.FC<Product> = ({ id, name, price, imageUrl }) => {
       quantity: 1,
     });
 
-    // Dispatch custom event for toast notification
+    
     window.dispatchEvent(new CustomEvent('show-toast', {
       detail: {
         message: 'Item added to cart',
@@ -157,7 +157,7 @@ const Shop: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans text-[#333]">
-      {/* Header Section */}
+     
       <header>
         <div className="relative h-48 overflow-hidden">
           <img
@@ -175,7 +175,7 @@ const Shop: React.FC = () => {
         </div>
       </header>
 
-      {/* Filter and Sort Section */}
+     
       <section className="bg-[#F8F0E3] py-4 shadow-sm mt-8 ">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center space-x-6">
@@ -183,7 +183,7 @@ const Shop: React.FC = () => {
               <img src={filterIcon} alt="Filter" className="w-4 h-4 text-black" />
               Filter
             </button>
-            {/* Search Input */}
+           
             <div className="relative hidden md:block">
               <input
                 type="text"
@@ -219,7 +219,7 @@ const Shop: React.FC = () => {
         </div>
       </section>
 
-      {/* Product Grid Section */}
+    
       <section className="py-8 bg-white overflow-hidden">
         <div className="container mx-auto px-4">
           <div
@@ -241,7 +241,7 @@ const Shop: React.FC = () => {
         </div>
       </section>
 
-      {/* Pagination Section */}
+      
       <section className="py-8 bg-white">
         <div className="container mx-auto px-4 flex justify-center">
           <nav className="flex space-x-2">
@@ -267,7 +267,7 @@ const Shop: React.FC = () => {
         </div>
       </section>
 
-      {/* Footer Section */}
+      
       <div className="bg-[#FAF4F4] py-12">
         <div className="container mx-auto px-4 flex flex-wrap justify-around items-start text-gray-600 text-sm">
           <div className="w-full sm:w-1/3 mb-6 sm:mb-0 text-left">
